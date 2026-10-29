@@ -1,0 +1,294 @@
+
+.app {
+  min-height: 100vh;
+  background: #f4f7fb;
+  color: #172b4d;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #14263d;
+  color: white;
+  padding: 28px 48px;
+  border-bottom: 4px solid #2d8cff;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+header p {
+  margin: 8px 0 0;
+  color: #b8c9dd;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+main h2 {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+section {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(20, 38, 61, 0.08);
+}
+
+section h3 {
+  margin-top: 0;
+  color: #14263d;
+}
+
+/* Dashboard headings */
+main h2 {
+  color: #172b4d;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* KPI card layout */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.kpi-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 24px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.kpi-label {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.kpi-value {
+  color: #14263d;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.alert-card {
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+
+.alert-card .kpi-value {
+  color: #c2410c;
+}
+
+@media (max-width: 800px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi-value {
+    font-size: 26px;
+  }
+}
+
+/* Warehouse performance section */
+.warehouse-section {
+  margin-top: 28px;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 24px;
+}
+
+.warehouse-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.warehouse-table thead {
+  background: #f1f5f9;
+}
+
+.warehouse-table th {
+  padding: 16px 18px;
+  color: #475569;
+  font-weight: 700;
+  white-space: nowrap;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.warehouse-table td {
+  padding: 16px 18px;
+  color: #172b4d;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+.warehouse-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.warehouse-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.warehouse-table td:first-child {
+  font-weight: 600;
+}
+
+.warehouse-table th:not(:first-child),
+.warehouse-table td:not(:first-child) {
+  text-align: right;
+}
+
+/* Warehouse filter */
+.warehouse-filter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.warehouse-filter label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.warehouse-filter select {
+  min-width: 280px;
+  max-width: 100%;
+  padding: 12px 16px;
+  background: #ffffff;
+  color: #172b4d;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.warehouse-filter select:focus {
+  outline: 2px solid #2d8cff;
+  outline-offset: 2px;
+}
+
+/* Inventory status indicators */
+.stock-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.stock-healthy {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.stock-warning {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.clear-filters-button {
+  background: #1e3a5f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.clear-filters-button:hover {
+  background: #2d527e;
+}
+
+.clear-filters-button:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+.inventory-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.form-field input,
+.form-field select {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  color: #0f172a;
+}
+
+.inventory-form button {
+  justify-self: start;
+  align-self: end;
+}
+
+@media (max-width: 600px) {
+  .inventory-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-field textarea {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background: white;
+  color: #0f172a;
+  min-height: 90px;
+  resize: vertical;
+}
