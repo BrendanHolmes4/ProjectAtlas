@@ -42,6 +42,22 @@ The system includes quantity validation, reference-number
 tracking, transaction auditing, and safeguards against
 invalid inventory changes.
 
+### Transaction History and Audit Trail
+
+Project Atlas maintains a transaction history for inventory
+receipts, shipments, and adjustments.
+
+![Project Atlas Transaction History](screenshots/transaction-history.png)
+
+Each transaction records the warehouse, product SKU,
+transaction type, quantity, reference number, and timestamp.
+
+Inventory adjustments also include explanatory notes,
+providing traceability for stock corrections.
+
+Transaction records are stored in SQL Server and retrieved
+through the FastAPI backend.
+
 ## Technology Stack
 
 - Frontend: React, TypeScript, Vite
