@@ -27,6 +27,21 @@ reorder alerts.
 Inventory records display quantities on hand, reserved stock,
 available units, reorder points, and stock status.
 
+### Inventory Transaction Processing
+
+Project Atlas supports three inventory operations:
+receiving stock, shipping stock, and adjusting inventory
+quantities.
+
+![Project Atlas Inventory Transactions](screenshots/inventory-transactions.png)
+
+Each operation uses a React form connected to a FastAPI
+endpoint and a SQL Server stored procedure.
+
+The system includes quantity validation, reference-number
+tracking, transaction auditing, and safeguards against
+invalid inventory changes.
+
 ## Technology Stack
 
 - Frontend: React, TypeScript, Vite
