@@ -80,3 +80,72 @@ Stored Procedures + Inventory Tables
 Core inventory workflows and dashboard functionality are implemented.
 
 Future improvements include authentication, role-based access control, expanded automated testing, deployment, and monitoring.
+
+## Database Setup
+
+Project Atlas uses Microsoft SQL Server for inventory storage,
+transaction processing, and reporting.
+
+### Requirements
+
+- Microsoft SQL Server (Developer Edition recommended)
+- SQL Server Management Studio (SSMS)
+- ODBC Driver 18 for SQL Server
+
+### Installation
+
+1. Open SQL Server Management Studio.
+2. Connect to your local SQL Server instance.
+3. Create a database named `ProjectAtlas`:
+
+   ```sql
+   CREATE DATABASE ProjectAtlas;
+   ```
+
+4. Open and execute the following scripts in order:
+
+   - `database/01_schema.sql`
+   - `database/02_stored_procedures.sql`
+   - `database/03_seed_data.sql`
+
+5. Verify the installation:
+
+   ```sql
+   USE ProjectAtlas;
+
+   SELECT COUNT(*) AS WarehouseCount
+   FROM dbo.Warehouses;
+
+   SELECT COUNT(*) AS ProductCount
+   FROM dbo.Products;
+
+   SELECT COUNT(*) AS InventoryCount
+   FROM dbo.Inventory;
+   ```
+
+### Expected Sample Data
+
+| Table | Records |
+|---|---:|
+| Warehouses | 4 |
+| Products | 8 |
+| Inventory | 32 |
+
+### Inventory Operations
+
+Inventory changes are processed through SQL Server stored
+procedures:
+
+- `usp_ReceiveInventory`
+- `usp_ShipInventory`
+- `usp_AdjustInventory`
+
+These procedures use database transactions, validation,
+and audit logging to protect inventory integrity.
+
+### Important
+
+Run the installation scripts against a new, empty database.
+
+Do not rerun the schema or seed scripts against an existing
+database containing inventory records.
