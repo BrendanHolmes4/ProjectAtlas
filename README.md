@@ -149,3 +149,134 @@ Run the installation scripts against a new, empty database.
 
 Do not rerun the schema or seed scripts against an existing
 database containing inventory records.
+
+## Backend Setup
+
+Project Atlas uses Python and FastAPI for its REST API.
+
+### Requirements
+
+- Python 3.12 or newer
+- Microsoft SQL Server
+- ODBC Driver 18 for SQL Server
+
+### Installation
+
+Open a terminal in the project root.
+
+Navigate to the backend:
+
+```powershell
+cd backend
+```
+
+Create a Python virtual environment:
+
+```powershell
+py -3.12 -m venv .venv
+```
+
+Install the dependencies:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+### Start the API
+
+Run:
+
+```powershell
+.\.venv\Scripts\python.exe -m uvicorn main:app --reload
+```
+
+The API will be available at:
+
+http://127.0.0.1:8000
+
+Interactive API documentation:
+
+http://127.0.0.1:8000/docs
+
+### Database Connection
+
+By default, the backend connects to a local SQL Server
+instance using Windows Authentication and the ProjectAtlas
+database.
+
+For a different SQL Server configuration, set the
+PROJECT_ATLAS_CONNECTION_STRING environment variable.
+
+### Run Automated Tests
+
+From the backend directory, execute:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests/test_inventory.py -v
+```
+
+The test suite covers inventory request validation,
+database error handling, and inventory operations.
+
+## Frontend Setup
+
+Project Atlas uses React, TypeScript, and Vite to provide
+an interactive inventory management dashboard.
+
+### Requirements
+
+- Node.js (current LTS version recommended)
+- npm
+- Project Atlas FastAPI backend running on port 8000
+
+### Installation
+
+Open a new terminal in the Project Atlas root directory.
+
+Navigate to the frontend:
+
+```powershell
+cd frontend
+```
+
+Install dependencies:
+
+```powershell
+npm install
+```
+
+### Start the Frontend
+
+Run:
+
+```powershell
+npm run dev
+```
+
+Open your browser and navigate to:
+
+http://localhost:5173
+
+### Application Features
+
+The dashboard includes:
+
+- Company-wide inventory KPIs
+- Warehouse performance reporting
+- Inventory search and filtering
+- Low-stock and reorder alerts
+- Receive inventory operations
+- Ship inventory operations
+- Inventory adjustments
+- Transaction history and audit tracking
+
+### Running the Full Application
+
+Project Atlas requires three components:
+
+1. SQL Server running with the ProjectAtlas database.
+2. FastAPI backend running at http://127.0.0.1:8000.
+3. React frontend running at http://localhost:5173.
+
+Start the backend before opening the frontend dashboard.
+```
