@@ -16,6 +16,17 @@ The dashboard displays real-time inventory metrics,
 warehouse performance, inventory valuation, and
 reorder alerts.
 
+### Inventory Management
+
+Project Atlas supports warehouse-specific inventory filtering,
+product searches, stock availability tracking, and automated
+reorder alerts.
+
+![Project Atlas Inventory Management](screenshots/inventory-management.png)
+
+Inventory records display quantities on hand, reserved stock,
+available units, reorder points, and stock status.
+
 ## Technology Stack
 
 - Frontend: React, TypeScript, Vite
