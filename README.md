@@ -5,6 +5,17 @@
 
 Project Atlas is a full-stack inventory management application built to demonstrate enterprise software engineering, database development, API design, and modern frontend development.
 
+## Application Preview
+
+Project Atlas provides a centralized dashboard for
+monitoring inventory across multiple warehouses.
+
+![Project Atlas Inventory Dashboard](screenshots/dashboard-overview.png)
+
+The dashboard displays real-time inventory metrics,
+warehouse performance, inventory valuation, and
+reorder alerts.
+
 ## Technology Stack
 
 - Frontend: React, TypeScript, Vite
