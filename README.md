@@ -1,6 +1,8 @@
 
 # Project Atlas
 
+[![Project Atlas Backend Tests](https://github.com/BrendanHolmes4/ProjectAtlas/actions/workflows/backend-tests.yml/badge.svg)](https://github.com/BrendanHolmes4/ProjectAtlas/actions/workflows/backend-tests.yml)
+
 ### Enterprise Inventory Management System
 
 Project Atlas is a full-stack inventory management application built to demonstrate enterprise software engineering, database development, API design, and modern frontend development.
