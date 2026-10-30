@@ -60,6 +60,72 @@ providing traceability for stock corrections.
 Transaction records are stored in SQL Server and retrieved
 through the FastAPI backend.
 
+## System Architecture
+
+Project Atlas uses a three-tier architecture separating
+the user interface, application logic, and database.
+
+### Architecture Diagram
+
+```mermaid
+flowchart TD
+    A["User / Web Browser"]
+    B["React + TypeScript Frontend"]
+    C["FastAPI REST Backend"]
+    D["Pydantic Request Validation"]
+    E["pyodbc Database Connection"]
+    F["Microsoft SQL Server"]
+    G["Stored Procedures"]
+    H["Inventory Tables and Audit History"]
+
+    A --> B
+    B -->|"HTTP / JSON"| C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    F -->|"Query Results"| E
+    E --> C
+    C -->|"JSON Response"| B
+```
+
+### Frontend — React and TypeScript
+
+- Provides an interactive inventory dashboard.
+- Displays inventory levels and warehouse performance.
+- Supports inventory receiving, shipping, and adjustments.
+- Communicates with the backend through REST API requests.
+
+### Backend — Python and FastAPI
+
+- Exposes REST API endpoints for inventory operations.
+- Validates incoming requests using Pydantic.
+- Connects to SQL Server using pyodbc.
+- Handles database operations and API responses.
+
+### Database — Microsoft SQL Server
+
+- Stores products, warehouses, inventory, and transactions.
+- Uses stored procedures for inventory modifications.
+- Maintains transaction history for auditing.
+- Supports inventory reporting through SQL views.
+
+### Data Flow
+
+1. A user performs an action in the React application.
+2. React sends an HTTP request to the FastAPI backend.
+3. FastAPI validates the request.
+4. The backend executes SQL queries or stored procedures.
+5. SQL Server processes the operation and returns results.
+6. FastAPI sends a response to React.
+7. React refreshes the dashboard with updated information.
+
+### Automated Testing
+
+GitHub Actions runs the backend's automated pytest suite
+on pushes and pull requests targeting the main branch.
+
 ## Technology Stack
 
 - Frontend: React, TypeScript, Vite
