@@ -120,8 +120,26 @@ main h2 {
 
 .table-container {
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
   margin-top: 24px;
+}
+
+.table-container .warehouse-table {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: collapse;
+}
+
+.table-container .warehouse-table th,
+.table-container .warehouse-table td {
+  padding: 12px 14px;
+  font-size: 13px;
+}
+
+.table-container .warehouse-table td:nth-child(3) {
+  white-space: normal;
+  min-width: 150px;
 }
 
 .warehouse-table {
@@ -291,4 +309,59 @@ main h2 {
   color: #0f172a;
   min-height: 90px;
   resize: vertical;
+}
+
+/* Product inventory search */
+
+.product-search {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.product-search label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #172b4d;
+}
+
+.product-search input {
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #172b4d;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+.product-search input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+/* Inventory table horizontal scrolling */
+
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 12px;
+}
+
+.table-container .warehouse-table {
+  min-width: 1250px;
+}
+
+.table-container .warehouse-table th:last-child,
+.table-container .warehouse-table td:last-child {
+  min-width: 150px;
+  white-space: nowrap;
+  text-align: center;
 }
