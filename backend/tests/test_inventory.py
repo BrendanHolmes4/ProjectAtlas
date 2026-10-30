@@ -82,22 +82,34 @@ def test_inventory_summary_handles_database_failure():
         "Unable to retrieve inventory summary"
     )
 
+
 def test_inventory_rejects_invalid_warehouse_type():
-    response = client.get(
-        "/inventory",
-        params={"warehouse": 123}
-    )
+    with patch("main.get_connection") as mock_connection:
+        mock_cursor = MagicMock()
+        mock_cursor.fetchall.return_value = []
 
-    assert response.status_code in (200, 422)
+        mock_connection.return_value.cursor.return_value = mock_cursor
 
+        response = client.get(
+            "/inventory",
+            params={"warehouse": 123}
+        )
+
+        assert response.status_code in (200, 422)
 
 def test_inventory_rejects_invalid_status_type():
-    response = client.get(
-        "/inventory",
-        params={"status": 123}
-    )
+    with patch("main.get_connection") as mock_connection:
+        mock_cursor = MagicMock()
+        mock_cursor.fetchall.return_value = []
 
-    assert response.status_code in (200, 422)
+        mock_connection.return_value.cursor.return_value = mock_cursor
+
+        response = client.get(
+            "/inventory",
+            params={"status": 123}
+        )
+
+        assert response.status_code in (200, 422)
 
 def test_inventory_warehouse_filter():
     mock_cursor = MagicMock()
